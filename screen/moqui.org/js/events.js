@@ -311,4 +311,9 @@
     /***/ })
     
     /******/ });
+
+
+    $('.event-cal-button').on('click', '.btn', function() {
+        $(this).addClass('active').siblings().removeClass('active');
+      });
     //# sourceMappingURL=events.js.map
