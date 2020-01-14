@@ -36,7 +36,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link" href="/apps/store/content/contact">
+                    <a class="nav-link" href="/apps/store/contact">
                         Contact</i>
                     </a>
                 </li>

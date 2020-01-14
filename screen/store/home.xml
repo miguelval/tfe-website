@@ -79,7 +79,7 @@ along with this software (see the LICENSE.md file). If not, see
             <set field="specialInstructions" from="ec.resource.getLocationText(specialInstrLocation, true)"/>
         </if>
 
-        <service-call name="storeProducts" />
+        <!-- <service-call name="storeProducts" /> -->
 
 
     </actions>

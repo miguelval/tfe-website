@@ -25,6 +25,9 @@ along with this software (see the LICENSE.md file). If not, see
     </resource>
 
 
+    <resource name="storeProducts">
+    	<id name="productId"><method type="get"><service name="mantle.product.AssetServices.get#AvailableInventory" /></method></id>
+    </resource>
 
     <!-- Product Information -->
 
@@ -51,7 +54,7 @@ along with this software (see the LICENSE.md file). If not, see
             <method type="get"><service name="popstore.ProductServices.get#SortedProductList"/></method>
         </resource>
     </resource>
-    
+
     <resource name="categories" require-authentication="anonymous-view">
         <id name="productCategoryId">
             <resource name="info"><method type="get">
