@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://moqui.org/xsd/xml-screen-2.1.xsd"
+        standalone="true" require-authentication="anonymous-view" allow-extra-path="true">
+ 
+     <always-actions>
+       <!--  <service-call name="popstore.StoreServices.get#ProductStoreIdFromHostName" in-map="[requestHostName:ec.web.getHostName(false)]" out-map="productStoreIdContext"/>
+        <set field="productStoreId" value="${productStoreIdContext.productStoreId ?: 'POPC_DEFAULT'}"/> -->
+
+<!--         <service-call name="popstore.StoreServices.get#StoreInfo" in-map="[productStoreId:productStoreId]" out-map="storeInfo"/>
+ -->
+
+    </always-actions>
+
+    <subscreens default-item="home" always-use-full-path="true"/>
+
+    <pre-actions>
+        <set field="home" value="/store"/>
+
+        <!-- get settings used in subscreens -->
+        <set field="template_server_root"   default-value="component://store/template/store/root.html.ftl"/>
+        <set field="template_server_footer" default-value="component://store/template/store/footer.html"/>
+        <set field="template_server_home"   default-value="component://store/template/store/home.html.ftl"/>
+        <set field="template_server_content" default-value="component://store/template/store/help.html.ftl"/>
+        <set field="template_server_header" default-value="component://store/template/store/navbar.html.ftl"/>
+
+    </pre-actions>
+
+    <widgets>
+        <render-mode><text type="html" location="${template_server_root}"/></render-mode>
+    </widgets>
+</screen>
