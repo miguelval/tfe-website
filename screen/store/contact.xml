@@ -11,14 +11,11 @@
     </actions>
 
     <widgets>
-
         <render-mode><text type="html" location="${template_server_header}"/></render-mode>
-
-
-        <label type="h1" text="Contact Us"/>
+        <label type="h1" text="Form"/>
         <form-single name="Form" transition="TheTransition" method="POST">
             <field name="firstName">
-                <default-field>
+                <default-field title="Name">
                     <text-line size="30"/>
                 </default-field>
             </field>
@@ -28,10 +25,9 @@
                     <text-line size="30"/>
                 </default-field>
             </field>
-
             <field name="message">
                 <default-field>
-                    <text-line size="300"/>
+                    <text-line size="30"/>
                 </default-field>
             </field>
 
@@ -42,10 +38,6 @@
             </field>
 
         </form-single>
-
-
         <render-mode><text type="html" location="${template_server_footer}"/></render-mode>
-
-
     </widgets>
 </screen>

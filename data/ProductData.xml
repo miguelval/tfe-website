@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This software is in the public domain under CC0 1.0 Universal plus a
+Grant of Patent License.
+
+To the extent possible under law, the author(s) have dedicated all
+copyright and related and neighboring rights to this software to the
+public domain worldwide. This software is distributed without any
+warranty.
+
+You should have received a copy of the CC0 Public Domain Dedication
+along with this software (see the LICENSE.md file). If not, see
+<http://creativecommons.org/publicdomain/zero/1.0/>.
+-->
+<entity-facade-xml type="demo">
+    <!-- use a record like this to set a regex for hostname(s) that should map to a given store:
+    <mantle.product.store.ProductStoreSetting productStoreId="POPC_DEFAULT" settingTypeEnumId="PsstHostname" fromDate="1406670784000" settingValue=".*"/> -->
+
+    <!-- TODO - move this somewhere else -->
+    <mantle.product.store.ProductStoreShipOption carrierPartyId="_NA_" lastUpdatedStamp="1545005379532" productStoreId="POPC_DEFAULT" shipmentMethodEnumId="ShMthGround" sequenceNum="2"/>
+    <mantle.product.store.ProductStoreShipOption carrierPartyId="_NA_" lastUpdatedStamp="1545005214226" productStoreId="POPC_DEFAULT" shipmentMethodEnumId="ShMthPickUp" sequenceNum="1"/>
+
+    <!-- NOTE: depends on and extends/overrides data in ZcaProductDemoData.xml in mantle-udm -->
+
+    <!-- ==================== Product Data ==================== -->
+
+    <!-- TODO: get original text instead of binary export, fine for demo images but for text makes it impossible to maintain -->
+
+    <mantle.product.category.ProductCategory productCategoryId="SCHOOL_SUPPLIES" productCategoryTypeEnumId="PctCatalog" categoryName="Clothing" description=""/>
+    <mantle.product.category.ProductCategoryRollup productCategoryId="SCHOOL_SUPPLIES" parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="1"/>
+    <mantle.product.category.ProductCategory productCategoryId="SCHOOL_SUPPLIES" productCategoryTypeEnumId="PctCatalog" categoryName="Office" description=""/>
+    <mantle.product.category.ProductCategoryRollup productCategoryId="SCHOOL_SUPPLIES" parentProductCategoryId="PopcBrowseRoot" fromDate="1265184000000" sequenceNum="2"/>
+
+    <!-- School Notebook -->
+    <mantle.product.Product productId="SCHOOL_NOTEBOOK" productTypeEnumId="PtVirtual" assetTypeEnumId="" assetClassEnumId=""
+            chargeShipping="Y" returnable="Y" productName="Notebook Pack" description="">
+        <!-- list price -->
+        <prices productPriceId="NOTEBOOK_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="12.99" priceUomId="USD"/>
+        <!-- long-term current price -->
+        <prices productPriceId="NOTEBOOK_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="14.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="1"/>
+        <categories productCategoryId="PopcNew" fromDate="1265184000000" sequenceNum="1"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="6"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="1"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.75" valueUomId="WT_lb"/>
+
+        <contents productContentId="NOTEBOOK_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/NOTEBOOK/description.html"/>
+        <contents productContentId="NOTEBOOK_ILF" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="Front"
+                contentLocation="dbresource://mantle/content/product/NOTEBOOK/notebook2.jpeg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_NOTEBOOK" filename="NOTEBOOK" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <dbResources resourceId="NOTEBOOK_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_NOTEBOOK"/>
+    <moqui.resource.DbResourceFile resourceId="NOTEBOOK_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+MTAwJSBjb3R0b24gPC9wPg0KPHA+SW1wb3J0ZWQ8L3A+DQo8cD5HcmFwaGljcyBjbG9zdXJlPC9wPg0KPHA+TWFjaGluZSB3YXNoPC9wPg0KPHA+U2hvcnQtc2xlZXZlIGdyYXBoaWMgVC1zaGlydCBpbiBsaWdodHdlaWdodCByaW5nLXNwdW4gY290dG9uIGZlYXR1cmluZyByaWJiZWQgY3JldyBuZWNrbGluZTwvcD4NCjxwPlRhZy1mcmVlIGNvbGxhciBmb3IgY29tZm9ydDwvcD4=]]></fileData>
+    </moqui.resource.DbResourceFile>
+
+
+    <!-- School Ruler -->
+    <mantle.product.Product productId="SCHOOL_RULER" productTypeEnumId="PtVirtual" assetTypeEnumId="" assetClassEnumId=""
+            chargeShipping="Y" returnable="Y" productName="Ruler" description="">
+        <prices productPriceId="SCHOOL_RULER_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="4.99" priceUomId="USD"/>
+        <prices productPriceId="SCHOOL_RULER_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="8.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="2"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="5"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="2"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.75" valueUomId="WT_lb"/>
+
+        <contents productContentId="SCHOOL_RULER_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_RULER/description.html"/>
+        <contents productContentId="SCHOOL_RULER_ILF" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="Front"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_RULER/ruler.jpg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_SCHOOL_RULER" filename="SCHOOL_RULER" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <dbResources resourceId="SCHOOL_RULER_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_SCHOOL_RULER"/>
+    <moqui.resource.DbResourceFile resourceId="SCHOOL_RULER_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+MTAwJSBjb3R0b24gPC9wPg0KPHA+SW1wb3J0ZWQ8L3A+DQo8cD5NYWNoaW5lIHdhc2g8L3A+DQo8cD5TaG9ydC1zbGVldmUgY2xhc3NpYyB0ZWUgZmVhdHVyaW5nIHJpYmJlZCBjcmV3IG5lY2tsaW5lPC9wPg0KPHA+UHJlLXNocnVuayBmb3IgZml0IDwvcD4NCjxwPjQuNSBvdW5jZSByaW5nLXNwdW4gY290dG9uPC9wPg==]]></fileData>
+    </moqui.resource.DbResourceFile>
+
+    <!-- Eraser -->
+    <mantle.product.Product productId="SCHOOL_ERASER" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Eraser" description="">
+        <prices productPriceId="SCHOOL_ERASER_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="9.99" priceUomId="USD"/>
+        <prices productPriceId="SCHOOL_ERASER_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="8.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="5"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="2"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="1"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.25" valueUomId="WT_lb"/>
+
+        <mantle.product.asset.Asset assetId="SCHOOL_ERASER" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+                statusId="AstAvailable" facilityId="ZIRET_WH" locationSeqId="01010101" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="10" availableToPromiseTotal="10"
+                acquireCost="7.50" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="SCHOOL_ERASER" effectiveDate="1265184000000"
+                    quantityOnHandDiff="100" availableToPromiseDiff="100"/>
+        </mantle.product.asset.Asset>
+
+        <contents productContentId="SCHOOL_ERASER_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_ERASER/description.html"/>
+        <contents productContentId="SCHOOL_ERASER_IMG" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="Pens"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_ERASER/eraser.jpg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_SCHOOL_ERASER" filename="SCHOOL_ERASER" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <dbResources resourceId="SCHOOL_ERASER_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_SCHOOL_ERASER"/>
+    <moqui.resource.DbResourceFile resourceId="SCHOOL_ERASER_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+SGlnaC1xdWFsaXR5IG1ldGFsIGNhc2luZyBmb3IgZHVyYWJpbGl0eTwvcD4NCg0KPHA+TkFORCBGbGFzaCBUZWNobm9sb2d5PC9wPg0KDQo8cD5XYXRlciBwcm9vZiwgU2hvY2sgcHJvb2YsIG1hZ25ldCBwcm9vZiwgdGVtcCBwcm9vZiBhbmQgWC1yYXkgcHJvb2Ygd2l0aCBhIDUteWVhcnMgd2FycmFudHk8L3A+DQoNCjxwPkhpZ2gtc3BlZWQgVVNCIDMuMCBmbGFzaCBkcml2ZSBmb3IgZmFzdCBkYXRhIHRyYW5zZmVyPC9wPg0KDQo8cD5PcGVyYXRpbmcgdGVtcGVyYXR1cmUgaXMgbWludXMgMTAgdG8gNzAgZGVncmVlIENlbHNpdXM8L3A+]]></fileData>
+    </moqui.resource.DbResourceFile>
+
+    <!-- Pens -->
+    <mantle.product.Product productId="SCHOOL_PENS" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Pens" description="">
+        <prices productPriceId="SCHOOL_PENS_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="9.99" priceUomId="USD"/>
+        <prices productPriceId="SCHOOL_PENS_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="8.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="5"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="2"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="1"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.25" valueUomId="WT_lb"/>
+
+        <!-- Adds quantity in stock to the USB product so that the checkout form can be tested -->
+        <mantle.product.asset.Asset assetId="SCHOOL_PENS" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+                statusId="AstAvailable" facilityId="ZIRET_WH" locationSeqId="01010101" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="10" availableToPromiseTotal="10"
+                acquireCost="7.50" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="SCHOOL_PENS" effectiveDate="1265184000000"
+                    quantityOnHandDiff="100" availableToPromiseDiff="100"/>
+        </mantle.product.asset.Asset>
+
+        <contents productContentId="SCHOOL_PENS_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_PENS/description.html"/>
+        <contents productContentId="SCHOOL_PENS_IMG" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="Pens"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_PENS/pens.jpg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_SCHOOL_PENS" filename="SCHOOL_PENS" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <dbResources resourceId="SCHOOL_PENS_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_SCHOOL_PENS"/>
+    <moqui.resource.DbResourceFile resourceId="SCHOOL_PENS_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+SGlnaC1xdWFsaXR5IG1ldGFsIGNhc2luZyBmb3IgZHVyYWJpbGl0eTwvcD4NCg0KPHA+TkFORCBGbGFzaCBUZWNobm9sb2d5PC9wPg0KDQo8cD5XYXRlciBwcm9vZiwgU2hvY2sgcHJvb2YsIG1hZ25ldCBwcm9vZiwgdGVtcCBwcm9vZiBhbmQgWC1yYXkgcHJvb2Ygd2l0aCBhIDUteWVhcnMgd2FycmFudHk8L3A+DQoNCjxwPkhpZ2gtc3BlZWQgVVNCIDMuMCBmbGFzaCBkcml2ZSBmb3IgZmFzdCBkYXRhIHRyYW5zZmVyPC9wPg0KDQo8cD5PcGVyYXRpbmcgdGVtcGVyYXR1cmUgaXMgbWludXMgMTAgdG8gNzAgZGVncmVlIENlbHNpdXM8L3A+]]></fileData>
+    </moqui.resource.DbResourceFile>
+    
+
+    <!-- Backpack -->
+    <mantle.product.Product productId="SCHOOL_BACKPACK" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Backpack" description="">
+        <prices productPriceId="SCHOOL_BACKPACK_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="9.99" priceUomId="USD"/>
+        <prices productPriceId="SCHOOL_BACKPACK_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="8.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="5"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="2"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="1"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.25" valueUomId="WT_lb"/>
+
+        <!-- Adds quantity in stock to the USB product so that the checkout form can be tested -->
+        <mantle.product.asset.Asset assetId="SCHOOL_BACKPACK" assetTypeEnumId="AstTpInventory" classEnumId="AsClsInventoryFin"
+                statusId="AstAvailable" facilityId="ZIRET_WH" locationSeqId="01010101" ownerPartyId="ORG_ZIZI_RETAIL"
+                hasQuantity="Y" quantityOnHandTotal="10" availableToPromiseTotal="10"
+                acquireCost="7.50" acquireCostUomId="USD" receivedDate="1265184000000">
+            <mantle.product.asset.AssetDetail assetDetailId="SCHOOL_BACKPACK" effectiveDate="1265184000000"
+                    quantityOnHandDiff="100" availableToPromiseDiff="100"/>
+        </mantle.product.asset.Asset>
+
+        <contents productContentId="SCHOOL_BACKPACK_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_BACKPACK/description.html"/>
+        <contents productContentId="SCHOOL_BACKPACK_IMG" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="USB Open Partial"
+                contentLocation="dbresource://mantle/content/product/SCHOOL_BACKPACK/backpack.jpg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_SCHOOL_BACKPACK" filename="SCHOOL_BACKPACK" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <dbResources resourceId="SCHOOL_BACKPACK_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_SCHOOL_BACKPACK"/>
+    <moqui.resource.DbResourceFile resourceId="SCHOOL_BACKPACK_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+SGlnaC1xdWFsaXR5IG1ldGFsIGNhc2luZyBmb3IgZHVyYWJpbGl0eTwvcD4NCg0KPHA+TkFORCBGbGFzaCBUZWNobm9sb2d5PC9wPg0KDQo8cD5XYXRlciBwcm9vZiwgU2hvY2sgcHJvb2YsIG1hZ25ldCBwcm9vZiwgdGVtcCBwcm9vZiBhbmQgWC1yYXkgcHJvb2Ygd2l0aCBhIDUteWVhcnMgd2FycmFudHk8L3A+DQoNCjxwPkhpZ2gtc3BlZWQgVVNCIDMuMCBmbGFzaCBkcml2ZSBmb3IgZmFzdCBkYXRhIHRyYW5zZmVyPC9wPg0KDQo8cD5PcGVyYXRpbmcgdGVtcGVyYXR1cmUgaXMgbWludXMgMTAgdG8gNzAgZGVncmVlIENlbHNpdXM8L3A+]]></fileData>
+    </moqui.resource.DbResourceFile>
+    
+    <!-- Pencils -->
+    <mantle.product.Product productId="PENCILS" productTypeEnumId="PtAsset" assetTypeEnumId="AstTpInventory" assetClassEnumId="AsClsInventoryFin"
+            chargeShipping="Y" returnable="Y" productName="Pencils" description="">
+        <prices productPriceId="PENCILS_L" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptList" fromDate="1265184000000"
+                minQuantity="1" price="9.99" priceUomId="USD"/>
+        <prices productPriceId="PENCILS_CLT" pricePurposeEnumId="PppPurchase" priceTypeEnumId="PptCurrent" fromDate="1265184000000"
+                minQuantity="1" price="6.99" priceUomId="USD"/>
+        <categories productCategoryId="PopcAllProducts" fromDate="1265184000000"/>
+        <categories productCategoryId="PopcDeals" fromDate="1265184000000" sequenceNum="6"/>
+        <categories productCategoryId="PopcNew" fromDate="1265184000000" sequenceNum="6"/>
+        <categories productCategoryId="PopcFeatured" fromDate="1265184000000" sequenceNum="1"/>
+        <categories productCategoryId="SCHOOL_SUPPLIES" fromDate="1265184000000" sequenceNum="2"/>
+        <dimensions dimensionTypeId="ShippingWeight" value="0.75" valueUomId="WT_lb"/>
+
+        <contents productContentId="PENCILS_DL" productContentTypeEnumId="PcntDescriptionLong" locale="en_US"
+                contentLocation="dbresource://mantle/content/product/PENCILS/description.html"/>
+        <contents productContentId="PENCILS_IL1" productContentTypeEnumId="PcntImageLarge" locale="" sequenceNum="1" description="Coffee Mug"
+                contentLocation="dbresource://mantle/content/product/PENCILS/pencils.jpg"/>
+    </mantle.product.Product>
+    <dbResources resourceId="MCNT_PROD_PENCILS" filename="PENCILS" isFile="N" parentResourceId="MCNT_PRODUCT"/>
+    <!-- <dbResources resourceId="PENCILS_IL1" filename="pencils.jpg" isFile="Y" parentResourceId="MCNT_PROD_PENCILS"/> -->
+    <dbResources resourceId="PENCILS_DL" filename="description.html" isFile="Y" parentResourceId="MCNT_PROD_PENCILS"/>
+    <moqui.resource.DbResourceFile resourceId="PENCILS_DL" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[PHA+RHJpbmsgaW4gc3R5bGUgd2l0aCB0aGlzIGN1c3RvbSBwcmludGVkIGNlcmFtaWMgbXVnITwvcD4NCjxwPk11Z3MgcHJpbnRlZCBmcm9tIGhpZ2ggcmVzb2x1dGlvbiBpbWFnZXMgZm9yIHNoYXJwIHJlc3VsdHMuPC9wPg0KPHA+RGlzaHdhc2hlciBhbmQgbWljcm93YXZlIHNhZmUsIGltYWdlcyB3aWxsIG5vdCBmYWRlIG92ZXIgdGltZS48L3A+DQo8cD48L3A+]]></fileData>
+    </moqui.resource.DbResourceFile>
+
+
+
+
+
+
+    <!-- ==================== Wiki Pages (content) ==================== -->
+
+    <!-- help page -->
+    <moqui.resource.wiki.WikiPage wikiPageId="zzw_help" wikiSpaceId="ZZW_RETAIL" pagePath="help" publishedVersionName="01">
+        <histories historySeqId="01" versionName="01" changeDateTime="1485028800000"/>
+    </moqui.resource.wiki.WikiPage>
+    <dbResources resourceId="zzw_help" filename="help.html" isFile="Y" parentResourceId="zzw_content_dir">
+        <file mimeType="text/html" versionName="01" rootVersionName="01">
+            <fileData><![CDATA[
+<div class="container">
+    <div class="row mt-4">
+        <div class="customer-menu col col-lg-2 col-md-3 mb-5">
+            <span class="modal-text">Help Center</span>
+            <ul class="customer-orders-ul">
+                <li><a href="/store/content/help">Delivery Rates</a></li>
+                <li><a href="/store/content/help#delivery">Delivery Times</a></li>
+                <li><a href="/store/content/help#customer-pick-up">Customer Pick Up</a></li>
+                <li><a href="/store/content/help#how-to-pay">How to Pay</a></li>
+            </ul>
+            <a class="customer-link" href="/store/content/about">About POP Shop</a>
+            <a class="customer-link" href="/store/content/contact">Contact Us</a>
+        </div>
+        <div class="col col-lg-9 offset-lg-1 col-12">
+            <span class="customer-orders-title help-title">Help Center</span>
+
+            <p class="order-text-color account-subtitle mt-3" id="delivery">Delivery Rates</p>
+
+            <hr class="account-hr" />
+            <p class="modal-text">We deliver nationwide from $2.99 for standard shipping. Express shipping cost $6.99 and comes with tracking.</p>
+
+            <p class="modal-text"><a class="customer-link" href="/store/content/contact">Contact us</a> for information about international orders. We can ship as far away Canada.</p>
+
+            <p></p>
+
+            <p class="order-text-color account-subtitle mt-5" id="customer-pick-up">Delivery Times</p>
+            <a class="account-back-top" href="/store/content/help">Back to Top</a>
+
+            <hr class="account-hr" />
+            <p class="modal-text">Standar shipping takes between 1 and 2 weeks. Express shipping takes 1 to 2 days.</p>
+
+            <p class="order-text-color account-subtitle mt-5" id="how-to-pay">Customer Pick Up</p>
+            <a class="account-back-top" href="/store/content/help">Back to Top</a>
+
+            <hr class="account-hr" />
+            <p class="modal-text">If you don&#39;t have a mail box then drop by our warehouses in Los Angeles or Atlanta.</p>
+
+            <p class="order-text-color account-subtitle mt-5">How To Pay</p>
+            <a class="account-back-top" href="/store/content/help">Back to Top</a>
+
+            <hr class="account-hr" />
+            <p class="modal-text">Paying is simple. All you need is a credit card and you&#39;re good to go. We accept Master Card and visa.</p>
+        </div>
+    </div>
+</div>
+            ]]></fileData>
+            <histories versionName="01" versionDate="1485028800000" isDiff="N"/>
+        </file>
+    </dbResources>
+
+    <!-- NOTE: these are not complete record sets (for about, contact), just override file data from mantle-udm demo data -->
+    <moqui.resource.DbResourceFile resourceId="zzw_about" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[
+<div class="container">
+    <span class="customer-orders-title help-title">About POP Shop</span>
+
+    <p class="modal-text mt-4">POP Shop is the official supplier of POP merchandise. Established in early 2016, POP Shop has an
+    extensive supplier network that allows us to source only the best clothing, drinkware and technology for all your POP needs.</p>
+
+    <p class="modal-text mt-4">All of our items come with a 100% guarantee of authenticity and each POP item you purchase comes
+    with a certificate to prove that you are indeed buying authentic POPware.</p>
+
+    <p class="modal-text mt-4">The POP Shop team working out of Los Angeles and Atlanta warehouses love what they do, and
+    particularly enjoy wearing high-vis jackets and a nifty helmet.</p>
+
+    <p class="modal-text mt-4">&quot;Working at POP Shop is okay&quot;<br /> Sylvester / warehouse technician</p>
+</div>
+        ]]></fileData>
+    </moqui.resource.DbResourceFile>
+    <moqui.resource.DbResourceFile resourceId="zzw_contact" rootVersionName="01" mimeType="text/html" versionName="01">
+        <fileData><![CDATA[
+<div class="container container-top">
+    <span class="customer-orders-title help-title">Contact Us</span>
+    <p class="modal-text mt-4">What can we help you with?</p>
+
+    <form>
+        <div class="form-group row">
+            <label class="col col-lg-4 col-sm-12 col-12 modal-text mt-2">Subject</label>
+            <div class="col col-lg-6 col-sm-12 col-12"><select class="form-control"><option value="01">Help cancelling an order</option></select></div>
+        </div>
+        <div class="form-group row">
+            <label class="col col-lg-4 col-sm-12 col-12 modal-text mt-2">Title</label>
+            <div class="col col-lg-6 col-sm-12 col-12"><input class="form-control" type="text"></div>
+        </div>
+        <div class="form-group row">
+            <label class="col col-lg-4 col-sm-12 col-12 modal-text mt-2">Message *</label>
+            <div class="col col-lg-6 col-sm-12 col-12"><textarea class="form-control contact-textarea" rows="9"></textarea></div>
+        </div>
+        <div class="form-group row">
+            <label class="col col-lg-4 col-sm-12 col-12 modal-text mt-2">Link to Product</label>
+            <div class="col col-lg-6 col-sm-12 col-12"><input class="form-control" type="text"></div>
+        </div>
+        <div class="form-group row">
+            <div class="col col-lg-6 offset-lg-4 col-12 col-sm-12"><button class="btn btn-continue account-btn">Send Message</button></div>
+        </div>
+    </form>
+</div>
+        ]]></fileData>
+    </moqui.resource.DbResourceFile>
+
+    <!-- ==================== Image BINARY Data ==================== -->
+
+
+
+    <!-- run index for search -->
+    <org.moqui.search.SearchServices.indexDataFeedDocuments dataFeedId="MantleSearch"/>
+    <org.moqui.search.SearchServices.indexDataFeedDocuments dataFeedId="PopCommerceSearch"/>
+</entity-facade-xml>

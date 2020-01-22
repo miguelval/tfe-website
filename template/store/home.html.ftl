@@ -23,114 +23,60 @@
         </div>
     </div>
 </div>
-
 <div class="container">
-
+    <#if promoProductList?has_content>
         <div class="text-left mt-3 modal-text">This Week's deals</div>
         <div class="carousel">
             <div class="container text-center my-3">
                 <div class="row mx-auto my-auto">
                     <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
-
                         <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
+                            <#list promoProductList as product>
+                                <#if product?index == 0>
+                                    <div class="carousel-item active">
+                                <#else>
+                                    <div class="carousel-item">
+                                </#if>
                                     <div class="d-block col-lg-3 col-12">
-                                        <a class="category-product" href="/store/product/">
+                                        <a class="category-product" href="/schoolSuppliesStore/product/${product.productId}">
                                             <figure class="figure">
-                                                    <img width="90%" class="figure-img img-fluid" src="/apps/store/assets/ruler.jpg">
+                                                <#if product.mediumImageInfo??>
+                                                    <img width="90%" class="figure-img img-fluid" src="/store/content/productImage/${product.mediumImageInfo.productContentId}">
+                                                <#else>
+                                                    <#if product.smallImageInfo??>
+                                                        <img width="90%" class="figure-img img-fluid" src="/store/content/productImage/${product.smallImageInfo.productContentId}" >
+                                                    </#if>
+                                                </#if>
                                                 <figcaption class="text-left title-product-text figure-caption">
-                                                    Ruler
+                                                    ${product.productName}
                                                 </figcaption>
                                                 <figcaption class="text-left figure-caption">
+                                                    <#if product.numberOfRatings??>
+                                                        <#list 1..5 as x>
                                                             <span class="star-rating">
+                                                                <#if (product.numberOfRatings >= x)>
                                                                     <i class="fas fa-star"></i>
+                                                                <#else>
+                                                                    <i class="far fa-star"></i>
+                                                                </#if>  
                                                             </span>
+                                                        </#list>
+                                                    </#if>
                                                 </figcaption>
                                                 <figcaption class="text-primary text-left figure-caption">
-                                                    <span class="product-price-text">$7.99   </span>
+                                                    <span class="product-price-text">$${product.price}</span>
                                                     <span class="product-last-price">
-                                                            <del> </del>
+                                                        <#if product.listPrice??>
+                                                            <del>$${product.listPrice}</del>
+                                                        </#if>
                                                     </span>
                                                 </figcaption>
                                             </figure>
                                         </a>
                                     </div>
                                 </div>
- 
-
-                                <div class="carousel-item">
-                                    <div class="d-block col-lg-3 col-12">
-                                        <a class="category-product" href="/store/product/">
-                                            <figure class="figure">
-                                                    <img width="90%" class="figure-img img-fluid" src="/apps/store/assets/notebook2.jpeg">
-                                                <figcaption class="text-left title-product-text figure-caption">
-                                                    Notebook Pack
-                                                </figcaption>
-                                                <figcaption class="text-left figure-caption">
-                                                            <span class="star-rating">
-                                                                    <i class="fas fa-star"></i>
-                                                            </span>
-                                                </figcaption>
-                                                <figcaption class="text-primary text-left figure-caption">
-                                                    <span class="product-price-text">$9.99   </span>
-                                                    <span class="product-last-price">
-                                                            <del> </del>
-                                                    </span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="d-block col-lg-3 col-12">
-                                        <a class="category-product" href="/store/product/">
-                                            <figure class="figure">
-                                                    <img width="90%" class="figure-img img-fluid" src="/apps/store/assets/pencils.jpg">
-                                                <figcaption class="text-left title-product-text figure-caption">
-                                                    Pencils
-                                                </figcaption>
-                                                <figcaption class="text-left figure-caption">
-                                                            <span class="star-rating">
-                                                                    <i class="fas fa-star"></i>
-                                                            </span>
-                                                </figcaption>
-                                                <figcaption class="text-primary text-left figure-caption">
-                                                    <span class="product-price-text">$4.99   </span>
-                                                    <span class="product-last-price">
-                                                            <del> </del>
-                                                    </span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div class="carousel-item">
-                                    <div class="d-block col-lg-3 col-12">
-                                        <a class="category-product" href="/store/product/">
-                                            <figure class="figure">
-                                                    <img width="90%" class="figure-img img-fluid" src="/apps/store/assets/eraser.jpg">
-                                                <figcaption class="text-left title-product-text figure-caption">
-                                                    Eraser
-                                                </figcaption>
-                                                <figcaption class="text-left figure-caption">
-                                                            <span class="star-rating">
-                                                                    <i class="fas fa-star"></i>
-                                                            </span>
-                                                </figcaption>
-                                                <figcaption class="text-primary text-left figure-caption">
-                                                    <span class="product-price-text">$2.99   </span>
-                                                    <span class="product-last-price">
-                                                            <del> </del>
-                                                    </span>
-                                                </figcaption>
-                                            </figure>
-                                        </a>
-                                    </div>
-                                </div>
-
-
+                            </#list>
+                        </div>
                         <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
                             <button type="button" class="carousel-prev"><i class="fas fa-arrow-left"></i></button>
                             <span class="sr-only">Previous</span>
@@ -143,7 +89,7 @@
                 </div>
             </div>
         </div>
-
+    </#if>
     <#if promoProductList?has_content && featureProductList?has_content><hr/></#if>
     <#if featureProductList?has_content>
         <div class="text-left mt-3 modal-text">Best Sellers</div>
@@ -159,7 +105,7 @@
                                     <div class="carousel-item">
                                 </#if>
                                     <div class="d-block col-lg-3 col-12">
-                                        <a class="category-product" href="/store/product/${product.productId}">
+                                        <a class="category-product" href="/schoolSuppliesStore/product/${product.productId}">
                                             <figure class="figure">
                                                 <#if product.mediumImageInfo??>
                                                     <img width="90%" class="figure-img img-fluid" src="/store/content/productImage/${product.mediumImageInfo.productContentId}">
